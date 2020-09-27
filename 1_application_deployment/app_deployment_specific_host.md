@@ -1,5 +1,5 @@
 
-# Enabling automatic route creation
+# Deploy application with automatic route creation
 
 ## Enable the automatic route creation
 OpenShift routes for Istio Gateways are automatically managed in Red Hat OpenShift Service Mesh. Every time an Istio Gateway is created, updated or deleted inside the service mesh, an OpenShift route is created, updated or deleted. A Red Hat OpenShift Service Mesh control plane component called Istio OpenShift Routing (IOR) synchronizes the gateway route.
