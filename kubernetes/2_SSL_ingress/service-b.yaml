@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-b
+spec:
+  selector:
+    matchLabels:
+      app: service-b
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: service-b
+    spec:
+      containers:
+        - name: service-b
+          image: image-registry.openshift-image-registry.svc:5000/default/myservice:latest
+          imagePullPolicy: "Always"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NAME
+              value: service-b
+            - name: VERSION
+              value: v1
+            - name: TARGET
+              value: service-d
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-b
+  labels:
+    app: service-b
+spec:
+  ports:
+   - port: 80
+     name: http
+     targetPort: 8080
+  selector:
+   app: service-b
+  
