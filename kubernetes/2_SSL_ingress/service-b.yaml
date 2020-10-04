@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: service-b
+  labels:
+    purpose: istio-demo
 spec:
   selector:
     matchLabels:
@@ -13,6 +15,7 @@ spec:
         sidecar.istio.io/inject: "true"
       labels:
         app: service-b
+        purpose: istio-demo
     spec:
       containers:
         - name: service-b
@@ -34,6 +37,7 @@ metadata:
   name: service-b
   labels:
     app: service-b
+    purpose: istio-demo
 spec:
   ports:
    - port: 80

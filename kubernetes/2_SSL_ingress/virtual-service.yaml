@@ -4,7 +4,7 @@ metadata:
   name: myservice
 spec:
   hosts:
-  - "www.jt.com"
+  - "api.192.168.64.2.nip.io"
   gateways:
   - myservice-gateway
   http:

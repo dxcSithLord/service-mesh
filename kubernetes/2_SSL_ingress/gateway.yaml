@@ -15,4 +15,4 @@ spec:
       serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
       privateKey: /etc/istio/ingressgateway-certs/tls.key
     hosts:
-    - "www.jt.com"
+    - "api.192.168.64.2.nip.io"
